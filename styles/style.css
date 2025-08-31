@@ -40,8 +40,8 @@
   content: "";
   width: 25px;
   height: 25px;
-  border-top: var(--accent-color, #ff0070) 1px solid;
-  border-right: var(--accent-color, #ff0070) 1px solid;
+  border-top: var(--button-decoration, #ff0070) 1px solid;
+  border-right: var(--button-decoration, #ff0070) 1px solid;
   position: absolute;
   top: 10px;
   right: 0;
@@ -51,8 +51,8 @@
   content: "";
   width: 25px;
   height: 25px;
-  border-bottom: var(--decoration-color, #ff0070) 1px solid;
-  border-left: var(--decoration-color, #ff0070) 1px solid;
+  border-bottom: var(--button-decoration, #ff0070) 1px solid;
+  border-left: var(--button-decoration, #ff0070) 1px solid;
   position: absolute;
   bottom: 10px;
   left: 0;
@@ -63,7 +63,6 @@
   grid-row: 1;
   vertical-align: center;
   width: 52px;
-  height: 26px;
   font-size: 1em;
   color: var(--accent-color, #ff0070);
   position: absolute;
@@ -119,7 +118,7 @@
   background: none;
   border: none;
   text-transform: lowercase;
-  color: var(--accent-color, #ff0070);
+  color: var(--button-decoration, #ff0070);
   cursor: pointer;
 }
 
@@ -146,16 +145,20 @@
   outline: 1px solid var(--button-hover-color, rgba(255, 0, 112, 0.4));
 }
 
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
 .header__theme-menu-button:focus-visible {
-  text-decoration: underline;
+  border-bottom: 1px solid currentColor;
 }
 
 .header__theme-menu-button_active {
-  outline: 1px solid var(--accent-color, #ff0070);
+  outline: 1px solid currentColor;
   pointer-events: none;
 }
 
-.no-focus {
+.header__big-title {
   grid-row: 2;
   justify-self: start;
   align-self: center;
@@ -167,7 +170,7 @@
 }
 
 @media (width >= 768px) {
-  .no-focus {
+  .header__big-title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 }
@@ -194,10 +197,6 @@
   color: var(--title-color, #000028);
 }
 
-article .title-decor {
-  margin-block-end: 10px;
-}
-
 .main {
   margin-block-end: 40px;
   display: grid;
@@ -222,8 +221,14 @@ article .title-decor {
   color: var(--article-p-color, #f1b2ce);
 }
 
+.main article {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .main__title {
-  color: var(--accent-color, #ff0070);
+  color: var(--button-decoration, #ff0070);
   font-size: 1em;
 }
 
@@ -240,14 +245,19 @@ article .title-decor {
 }
 
 .link:hover {
-  text-decoration: underline;
+  border-bottom: 1px solid currentColor;
 }
 
 .link:focus-visible {
   outline: 1px solid;
 }
 
-.why {
+/* 3 однотипные секции объеденены в 1 селектор.
+Они однотипны при самом маленьком экране, но на больших экранах
+требуют индивидуального подхода, т.к. сетка у них разная. */
+.why,
+.what,
+.how {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
@@ -263,14 +273,9 @@ article .title-decor {
   }
 }
 
-.what {
+.what__content {
   display: grid;
-  grid-template-columns: 1fr;
   gap: 20px;
-}
-
-.empty-columns {
-  display: none;
 }
 
 @media (width >= 768px) {
@@ -282,12 +287,7 @@ article .title-decor {
     grid-column: 1;
   }
 
-  .empty-columns {
-    display: block;
-    grid-column: 2/4;
-  }
-
-  .what article {
+  .what__content {
     grid-column: 1/4;
   }
 }
@@ -301,20 +301,10 @@ article .title-decor {
     grid-column: 1;
   }
 
-  .two-columns {
-    display: block;
-    grid-column: 2/4;
+  .what__content {
+    grid-template-columns: repeat(3, 1fr);
+    grid-column: 1/4;
   }
-
-  .what article {
-    grid-column: initial;
-  }
-}
-
-.how {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
 }
 
 .advice {
@@ -325,9 +315,8 @@ article .title-decor {
 .advice__title {
   background-color: var(--accent-color, #ff0070);
   color: var(--title-color, #000028);
-  font-family: "IBM plex mono", sans-serif;
+  font-family: "IBM plex mono", monospace, sans-serif;
   font-weight: normal;
-  margin-block-end: 10px;
 }
 
 @media (width >= 768px) {
@@ -403,14 +392,14 @@ article .title-decor {
   justify-content: center;
 }
 
-.focus {
+.footer__big-title {
   color: var(--focus-color, #db00ff);
   text-shadow: 2px 2px 0px var(--accent-color, #ff0070);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
 }
 
 @media (width >= 768px) {
-  .focus {
+  .footer__big-title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 }

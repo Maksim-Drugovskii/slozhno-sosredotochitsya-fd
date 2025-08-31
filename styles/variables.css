@@ -14,6 +14,8 @@
 
   --focus-color: #DB00FF;
 
+  --button-decoration: var(--accent-color);
+
   --button-hover-color: rgba(255, 0, 112, 0.4);
 
   --title-color: var(--bg-color);
