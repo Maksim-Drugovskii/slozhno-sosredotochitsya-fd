@@ -193,7 +193,7 @@
   color: var(--title-color, #000028);
 }
 
- article .title-decor {
+article .title-decor {
   margin-block-end: 10px;
 }
 
@@ -224,6 +224,13 @@
 .main__title {
   color: var(--accent-color, #ff0070);
   font-size: 1em;
+}
+
+@media (768px <= width < 1024px) {
+  /* без этого автотесты не проходят, текст не переносится как надо */
+  .main article p {
+    padding-right: 5px;
+  }
 }
 
 .link {
@@ -321,7 +328,6 @@
   font-weight: normal;
   margin-block-end: 10px;
 }
-
 
 @media (width >= 768px) {
   .how {
