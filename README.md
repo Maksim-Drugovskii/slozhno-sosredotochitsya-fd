@@ -1,0 +1,1 @@
+https://github.com/Maksim-Drugovskii/slozhno-sosredotochitsya-fd
