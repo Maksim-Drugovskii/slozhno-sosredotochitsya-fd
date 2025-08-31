@@ -110,7 +110,7 @@
 .header__theme-menu-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 11.5px;
 }
 
 .header__theme-menu-button {
@@ -138,6 +138,7 @@
 
   .header__theme-menu-list {
     flex-direction: row;
+    gap: 10px;
   }
 }
 
