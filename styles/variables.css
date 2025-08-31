@@ -10,11 +10,13 @@
 
   --bg-color: #000028;
 
-  --title-color: var(--bg-color); 
-
   --article-p-color: #F1B2CE;
 
   --focus-color: #DB00FF;
-  
+
   --button-hover-color: rgba(255, 0, 112, 0.4);
+}
+
+:root {
+  --title-color: var(--bg-color); 
 }
