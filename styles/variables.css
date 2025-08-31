@@ -15,8 +15,6 @@
   --focus-color: #DB00FF;
 
   --button-hover-color: rgba(255, 0, 112, 0.4);
-}
 
-:root {
-  --title-color: var(--bg-color); 
+  --title-color: var(--bg-color);
 }
